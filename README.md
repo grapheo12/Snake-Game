@@ -14,4 +14,5 @@ Directions for playing:
 3. Ten points will be awarded for every bit of food eaten. Points will be shown in the Title Bar
 4. Speed of the Snake will increase as point increases.
 5. Game ends when the Snake hits the walls.
+6. Press 'p' to Pause.
 
