@@ -23,7 +23,8 @@ import os, sys
 
 class Food(Label):
     def __init__(self, root, **kwargs):
-        Label.__init__(self, root, text="o", foreground="blue", background="blue")
+        self.image = PhotoImage(file='Snake-Game\Food.gif').subsample(12, 12)
+        Label.__init__(self, root, image=self.image, bd=0)
         self.root = root 
         
         self.x = 0
@@ -39,7 +40,11 @@ class Food(Label):
         
 class Snake(Label):
     def __init__(self, root, **kwargs):
-        Label.__init__(self, root, text="AA", foreground="red", background="red")
+        self.images = [PhotoImage(file='Snake-Game\Head.gif').subsample(8,8), 
+                       PhotoImage(file='Snake-Game\Body.gif').subsample(8, 8)]
+
+                       
+        Label.__init__(self, root, image=self.images[0], bd=0)
         self.root = root 
         
         self.moveVector = 'Right' #Can also be 'Left', 'Up', 'Down', 'p'(ause)
@@ -97,7 +102,7 @@ class Snake(Label):
             self.moveVector = key 
             
     def addBody(self):
-        tail = Label(self.root, text="AA", foreground="orange", background="orange")
+        tail = Label(self.root, image=self.images[1], bd=0)
         tail.place(relx=(self.x / 100.0), rely=(self.y / 100.0))
         self.body.append(tail) 
         
@@ -120,6 +125,8 @@ snake = Snake(root)
  
 root.bind("<Key>", snake.changeDirection)
 
+root.geometry('600x500')
+root.resizable(height=False, width=False)
 root.mainloop()            
             
             
