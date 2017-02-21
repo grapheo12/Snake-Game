@@ -1,4 +1,4 @@
-# AutoBill
+# Snake-Game
 This is a simple classic Snake Game built using Python and Tkinter
 Author: Shubham Mishra
 
